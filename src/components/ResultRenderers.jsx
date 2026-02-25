@@ -177,6 +177,7 @@ export function ComparateurResult({ data }) {
 }
 
 export function GenerateurResult({ data }) {
+    console.log("GENERATEUR DATA:", data);
   if (data.raw) return <pre style={{ fontSize: 12, color: "#64748b", whiteSpace: "pre-wrap" }}>{data.raw.slice(0, 400)}</pre>;
   return (
     <div>
