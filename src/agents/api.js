@@ -19,7 +19,13 @@ export async function callAgent(systemPrompt, userMessage) {
   const text = data.content?.map((b) => b.text || "").join("") || "";
 
   try {
-    const match = text.replace(/```json|```/g, "").match(/\{[\s\S]*\}/);
+    // Nettoyage agressif : supprime tous les blocs ```json ... ``` ou ``` ... ```
+    const clean = text
+      .replace(/^```json\s*/i, "")
+      .replace(/^```\s*/i, "")
+      .replace(/\s*```$/i, "")
+      .trim();
+    const match = clean.match(/\{[\s\S]*\}/);
     return match ? JSON.parse(match[0]) : { raw: text };
   } catch {
     return { raw: text };
