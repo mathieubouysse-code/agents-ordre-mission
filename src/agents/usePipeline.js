@@ -37,6 +37,7 @@ export function usePipeline() {
       const corrections = await run("correcteur", `Bugs :\n${JSON.stringify(audit.bugs_critiques)}\nArchi :\n${JSON.stringify(audit.problemes_architecture)}\nContexte :\n${contexteApp}`);
       await run("testeur", `Corrections :\n${JSON.stringify(corrections)}\nContexte :\n${contexteApp}`);
       await run("comparateur", `Audit : ${JSON.stringify(audit)}\nArchitecture : ${JSON.stringify(arch)}\nCorrections : ${JSON.stringify(corrections)}`);
+      await run("generateur", `Audit : ${JSON.stringify(audit)}\nCorrections : ${JSON.stringify(corrections)}\nArchitecture : ${JSON.stringify(arch)}\nContexte app : ${contexteApp}`);
       setCurrent(null);
       setPhase("result");
     } catch (err) {

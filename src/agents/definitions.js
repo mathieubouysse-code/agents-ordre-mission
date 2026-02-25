@@ -66,6 +66,25 @@ Réponds UNIQUEMENT avec un JSON valide (sans markdown) :
   "ce_qui_ne_change_pas": "fonctionnalités identiques"
 }`,
   },
+  generateur: {
+    id: "generateur", name: "Agent Générateur", icon: "⚡",
+    color: "#0f766e", bg: "#f0fdfa", border: "#5eead4",
+    desc: "Génère le code corrigé et amélioré",
+    prompt: `Tu es un développeur React senior.
+Tu reçois un audit complet avec les bugs identifiés et les corrections à apporter.
+Tu génères le code corrigé pour chaque fichier concerné.
+Réponds UNIQUEMENT avec un JSON valide (sans markdown) :
+{
+  "fichiers_corriges": [
+    {
+      "chemin": "src/components/MissionModal.jsx",
+      "description": "ce qui a été corrigé",
+      "code": "le code JSX complet corrigé"
+    }
+  ],
+  "resume": "ce qui a été corrigé en une phrase"
+}`,
+  },
 };
 
-export const STEPS = ["auditeur", "architecte", "correcteur", "testeur", "comparateur"];
+export const STEPS = ["auditeur", "architecte", "correcteur", "testeur", "comparateur", "generateur"];

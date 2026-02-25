@@ -8,6 +8,7 @@ import {
   CorrectorResult,
   TesteurResult,
   ComparateurResult,
+  GenerateurResult,
 } from "./components/ResultRenderers";
 
 const CONTEXTE_APP = `
@@ -39,6 +40,7 @@ function renderAgentResult(agentId, data) {
     case "correcteur":  return <CorrectorResult data={data} />;
     case "testeur":     return <TesteurResult data={data} />;
     case "comparateur": return <ComparateurResult data={data} />;
+    case "generateur": return <GenerateurResult data={data} />;
     default:            return null;
   }
 }

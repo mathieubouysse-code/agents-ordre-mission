@@ -175,3 +175,41 @@ export function ComparateurResult({ data }) {
     </div>
   );
 }
+
+export function GenerateurResult({ data }) {
+  if (data.raw) return <pre style={{ fontSize: 12, color: "#64748b", whiteSpace: "pre-wrap" }}>{data.raw.slice(0, 400)}</pre>;
+  return (
+    <div>
+      <div style={{ background: "#f0fdfa", border: "1px solid #99f6e4", borderRadius: 8, padding: "10px 14px", marginBottom: 16, fontSize: 13, color: "#0f766e" }}>
+        ✅ {data.resume}
+      </div>
+      {(data.fichiers_corriges || []).map((f, i) => (
+        <div key={i} style={{ border: "1px solid #5eead4", borderRadius: 10, padding: "14px", marginBottom: 14, background: "white" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+            <div>
+              <div style={{ fontFamily: "monospace", fontSize: 12, background: "#f0fdfa", color: "#0f766e", borderRadius: 4, padding: "2px 8px", display: "inline-block", marginBottom: 4 }}>{f.chemin}</div>
+              <div style={{ fontSize: 12, color: "#6b7280" }}>{f.description}</div>
+            </div>
+            <button
+              onClick={() => {
+                const blob = new Blob([f.code], { type: "text/plain" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = f.chemin.split("/").pop();
+                a.click();
+                URL.revokeObjectURL(url);
+              }}
+              style={{ background: "#0f766e", color: "white", border: "none", borderRadius: 8, padding: "7px 14px", fontSize: 12, fontWeight: 700, cursor: "pointer", fontFamily: "inherit", flexShrink: 0 }}
+            >
+              ⬇ Télécharger
+            </button>
+          </div>
+          <div style={{ background: "#0f172a", borderRadius: 8, padding: "12px 16px", fontFamily: "monospace", fontSize: 11, color: "#7dd3fc", lineHeight: 1.6, overflowX: "auto", maxHeight: 200, overflowY: "auto" }}>
+            {f.code?.slice(0, 500)}{f.code?.length > 500 ? "\n..." : ""}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
