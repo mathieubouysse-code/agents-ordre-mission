@@ -15,7 +15,32 @@ export default async function handler(req, res) {
       body: JSON.stringify(req.body),
     });
     const data = await response.json();
-    res.status(response.status).json(data);
+    
+    // Extraire le texte brut
+    const text = data.content?.map((b) => b.text || "").join("") || "";
+    
+    // Nettoyer et parser côté serveur
+    let parsed = null;
+    try {
+      let clean = text.trim()
+        .replace(/^```json\s*/i, "")
+        .replace(/^```\s*/i, "")
+        .replace(/\s*```$/i, "")
+        .trim();
+      parsed = JSON.parse(clean);
+    } catch {
+      try {
+        const match = text.match(/\{[\s\S]*\}/);
+        if (match) parsed = JSON.parse(match[0]);
+      } catch {}
+    }
+
+    // Renvoyer soit le JSON parsé soit le texte brut
+    if (parsed) {
+      res.status(200).json({ parsed });
+    } else {
+      res.status(200).json({ raw: text });
+    }
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
