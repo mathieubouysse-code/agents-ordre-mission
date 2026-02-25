@@ -71,19 +71,11 @@ Réponds UNIQUEMENT avec un JSON valide (sans markdown) :
     color: "#0f766e", bg: "#f0fdfa", border: "#5eead4",
     desc: "Génère le code corrigé et amélioré",
     prompt: `Tu es un développeur React senior.
-Tu reçois un audit complet avec les bugs identifiés et les corrections à apporter.
-Tu génères le code corrigé pour chaque fichier concerné.
-Réponds UNIQUEMENT avec un JSON valide (sans markdown) :
-{
-  "fichiers_corriges": [
-    {
-      "chemin": "src/components/MissionModal.jsx",
-      "description": "ce qui a été corrigé",
-      "code": "le code JSX complet corrigé"
-    }
-  ],
-  "resume": "ce qui a été corrigé en une phrase"
-}`,
+Tu reçois un audit complet avec les bugs et corrections.
+Tu DOIS répondre avec UNIQUEMENT du JSON brut, ABSOLUMENT AUCUN backtick, AUCUN bloc de code, AUCUN markdown.
+Ta réponse doit commencer DIRECTEMENT par { et finir par }.
+Format OBLIGATOIRE :
+{"fichiers_corriges":[{"chemin":"src/utils/roleUtils.js","description":"ce qui a été corrigé","code":"le code complet ici"}],"resume":"résumé en une phrase"}`,
   },
 };
 
