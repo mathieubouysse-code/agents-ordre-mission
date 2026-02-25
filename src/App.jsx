@@ -69,7 +69,7 @@ export default function App() {
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ fontSize: 11, letterSpacing: "0.15em", color: "#93c5fd", textTransform: "uppercase", marginBottom: 6 }}>Analyse multi-agents</div>
           <h1 style={{ margin: 0, fontSize: 22, fontWeight: 800, color: "white" }}>Réécriture de ordre-mission.jsx</h1>
-          <p style={{ color: "#94a3b8", margin: "8px 0 0", fontSize: 13 }}>5 agents analysent le code, identifient les bugs et proposent une version améliorée</p>
+          <p style={{ color: "#94a3b8", margin: "8px 0 0", fontSize: 13 }}>6 agents analysent le code, identifient les bugs et proposent une version améliorée</p>
         </div>
       </div>
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "28px 20px" }}>
@@ -78,7 +78,7 @@ export default function App() {
           <div style={{ background: "white", borderRadius: 16, padding: 40, border: "1px solid #e2e8f0", textAlign: "center" }}>
             <div style={{ fontSize: 48, marginBottom: 16 }}>🗂️</div>
             <h2 style={{ margin: "0 0 8px", fontSize: 20, color: "#0f172a" }}>Analyse de l'application réelle</h2>
-            <p style={{ color: "#6b7280", fontSize: 14, maxWidth: 500, margin: "0 auto 24px" }}>Les 5 agents vont analyser ordre-mission.jsx et identifier ce qui aurait changé.</p>
+            <p style={{ color: "#6b7280", fontSize: 14, maxWidth: 500, margin: "0 auto 24px" }}>Les 6 agents vont analyser ordre-mission.jsx et identifier ce qui aurait changé.</p>
             <button onClick={() => launch(CONTEXTE_APP)} style={{ background: "linear-gradient(135deg, #0f172a, #1e40af)", color: "white", border: "none", borderRadius: 12, padding: "14px 36px", fontWeight: 800, fontSize: 15, cursor: "pointer", fontFamily: "inherit" }}>
               🚀 Lancer l'analyse
             </button>
