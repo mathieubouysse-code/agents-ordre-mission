@@ -4,7 +4,7 @@ import { STEPS, AGENTS } from "../agents/definitions";
 export function PipelineBar({ currentAgent, results, activeTab, onTabChange }) {
   return (
     <div style={{ background: "white", borderRadius: 16, padding: 20, border: "1px solid #e2e8f0", marginBottom: 24 }}>
-      <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 16 }}>Pipeline des 5 agents</div>
+      <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 16 }}>Pipeline des 6 agents</div>
       <div style={{ display: "flex", alignItems: "center", overflowX: "auto" }}>
         {STEPS.map((s, i) => {
           const a = AGENTS[s];
